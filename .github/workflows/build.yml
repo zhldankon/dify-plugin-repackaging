@@ -41,16 +41,16 @@ jobs:
             echo "PACKAGE_SUFFIX=offline" >> "$GITHUB_ENV"
           fi
 
-      - name: Checkout repository
-        uses: actions/checkout@v4  # 移除了node-version参数
+      - name: Checkout repository (使用v3版本)
+        uses: actions/checkout@v3  # 改为v3版本
 
-      - name: Set up Node.js 20  # 添加这个步骤
-        uses: actions/setup-node@v4
+      - name: Set up Node.js 20 (使用v3版本)
+        uses: actions/setup-node@v3  # 改为v3版本
         with:
-          node-version: 20  # 在这里指定Node.js 20
+          node-version: 20
 
-      - name: Set up Python 3.12
-        uses: actions/setup-python@v5
+      - name: Set up Python 3.12 (使用v3版本)
+        uses: actions/setup-python@v3  # 改为v3版本
         with:
           python-version: "3.12"
 
@@ -79,8 +79,8 @@ jobs:
           echo "ARTIFACT_PATH=$ARTIFACT_PATH" >> $GITHUB_ENV
           echo "ARTIFACT_NAME=$(basename "$ARTIFACT_PATH")" >> $GITHUB_ENV
 
-      - name: Upload artifact
-        uses: actions/upload-artifact@v4
+      - name: Upload artifact (使用v3版本)
+        uses: actions/upload-artifact@v3  # 改为v3版本
         with:
           name: ${{ env.ARTIFACT_NAME }}
           path: ${{ env.ARTIFACT_PATH }}
